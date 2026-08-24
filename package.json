@@ -1,0 +1,30 @@
+{
+  "name": "external-link-manager",
+  "version": "1.0.0",
+  "description": "Admin UI for the External Link Manager WordPress plugin.",
+  "private": true,
+  "license": "GPL-2.0-or-later",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build",
+    "lint:js": "wp-scripts lint-js src",
+    "lint:js:fix": "wp-scripts lint-js src --fix",
+    "format": "wp-scripts format src",
+    "test:unit": "wp-scripts test-unit-js",
+    "packages-update": "wp-scripts packages-update"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^30.0.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@wordpress/api-fetch": "^7.0.0",
+    "@wordpress/components": "^28.0.0",
+    "@wordpress/data": "^10.0.0",
+    "@wordpress/element": "^6.0.0",
+    "@wordpress/hooks": "^4.0.0",
+    "@wordpress/i18n": "^5.0.0",
+    "@wordpress/icons": "^10.0.0",
+    "@wordpress/url": "^4.0.0"
+  }
+}
