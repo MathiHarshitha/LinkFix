@@ -40,14 +40,9 @@ export default function Tools() {
 	};
 
 	const doImport = () => {
+		let payload;
 		try {
-			const payload = JSON.parse( importJson );
-			api.importData( payload ).then( () =>
-				setNotice( {
-					status: 'success',
-					message: __( 'Import complete.', 'external-link-manager' ),
-				} )
-			);
+			payload = JSON.parse( importJson );
 		} catch ( e ) {
 			setNotice( {
 				status: 'error',
@@ -56,7 +51,22 @@ export default function Tools() {
 					'external-link-manager'
 				),
 			} );
+			return;
 		}
+
+		api.importData( payload )
+			.then( () =>
+				setNotice( {
+					status: 'success',
+					message: __( 'Import complete.', 'external-link-manager' ),
+				} )
+			)
+			.catch( ( err ) =>
+				setNotice( {
+					status: 'error',
+					message: err.message || String( err ),
+				} )
+			);
 	};
 
 	const onFileChosen = ( event ) => {
